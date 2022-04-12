@@ -17,8 +17,6 @@ import { ImSphere } from '@react-icons/all-files/im/ImSphere';
 import { GITHUB_PROFILE, WEBSITE } from 'src/constants';
 
 const IndexPage = () => {
-  const { t } = useTranslation();
-
   return (
     <PageLayout
       title='Home'
