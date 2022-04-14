@@ -1,75 +1,115 @@
+import NowPlaying from '@/components/now-playing';
 import PageLayout from '@/components/page-layout';
+import RecentlyPlayed from '@/components/recently-played';
+import ThemeButton from '@/components/theme-button';
+import TopTracks from '@/components/top-tracks';
 import {
   Button,
-  Center,
   Divider,
+  Flex,
+  Grid,
+  GridItem,
   Heading,
   HStack,
-  Image,
   Link,
-  Skeleton,
-  Stack,
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { FiExternalLink } from '@react-icons/all-files/fi/FiExternalLink';
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { GiHealthPotion } from '@react-icons/all-files/gi/GiHealthPotion';
 import { ImSphere } from '@react-icons/all-files/im/ImSphere';
-import { GITHUB_PROFILE, WEBSITE } from 'src/constants';
+import NextLink from 'next/link';
 
 const IndexPage = () => {
   return (
-    <PageLayout
-      title='Home'
-      description='Discover a starter kit which includes Next.js, Chakra-UI, Framer-Motion in Typescript. You have few components, Internationalization, SEO and more in this template ! Enjoy coding.'
-    >
-      <Stack
-        spacing={4}
-        py={12}
-        align='center'
-        h='100vh'
-        w='100%'
-        direction={{ base: 'column', md: 'row' }}
+    <PageLayout title='Home' description="Official HakkaOfDev's API">
+      <Grid
+        templateRows='repeat(6, 1fr)'
+        templateColumns='repeat(8, 1fr)'
+        gap={8}
+        h='full'
+        w='full'
       >
-        <VStack spacing={2} align='start' w={{ base: '100%', md: '50%' }}>
-          <Heading as='h1'>Alexandre GOSSARD</Heading>
+        <GridItem colSpan={8}>
+          <VStack w='full' h='full' align='center' justify='center'>
+            <HStack spacing={4}>
+              <ThemeButton />
+              <Heading>HAKKAOFDEV API</Heading>
+            </HStack>
+            <Divider></Divider>
+            <Text>Welcome to my official opensource API.</Text>
+          </VStack>
+        </GridItem>
+        <GridItem colSpan={4} rowSpan={5}></GridItem>
+        <GridItem colSpan={2} rowSpan={5} pb={8}>
+          <Heading fontSize='xl' p={2}>
+            Top Tracks
+          </Heading>
           <Divider />
-          <Text color='gray.500' align='justify'>
-            Hi, welcome to my official API.
-          </Text>
-          <HStack
-            spacing={4}
-            w='full'
-            justify={{ base: 'center', md: 'flex-start' }}
-          >
-            <Link href={WEBSITE} isExternal>
+          <TopTracks />
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={5} pb={8}>
+          <Heading fontSize='xl' p={2}>
+            Recently Played
+          </Heading>
+          <Divider />
+          <RecentlyPlayed />
+        </GridItem>
+        <GridItem colSpan={2}>
+          <NowPlaying />
+        </GridItem>
+        <GridItem colSpan={2}>
+          <Flex w='full' h='full' align='center' justify='center'>
+            <Link href='https://www.hakkaofdev.fr' isExternal>
               <Button
-                colorScheme='brand'
-                variant='ghost'
-                rightIcon={<ImSphere />}
+                colorScheme='blue'
+                size='lg'
+                variant='outline'
+                boxShadow='md'
+                _focus={{ outline: 'none' }}
+                leftIcon={<ImSphere />}
               >
-                Website
+                My portfolio
               </Button>
             </Link>
-            <Link href={GITHUB_PROFILE} isExternal>
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={2}>
+          <Flex w='full' h='full' align='center' justify='center'>
+            <Link
+              href='https://www.github.com/hakkaofdev/api.hakkaofdev.fr'
+              isExternal
+            >
               <Button
-                colorScheme='brand'
-                variant='ghost'
-                rightIcon={<FiExternalLink />}
+                colorScheme='gray'
+                size='lg'
+                variant='outline'
+                boxShadow='md'
+                _focus={{ outline: 'none' }}
+                leftIcon={<FaGithub />}
               >
-                Github
+                Github Repo
               </Button>
             </Link>
-          </HStack>
-        </VStack>
-        <Center w={{ base: '100%', md: '50%' }}>
-          <Image
-            src='/assets/images/home.jpg'
-            h={500}
-            fit='cover'
-            fallback={<Skeleton w={{ base: '100%', md: '50%' }} h={500} />}
-          />
-        </Center>
-      </Stack>
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={2}>
+          <Flex w='full' h='full' align='center' justify='center'>
+            <NextLink href='/api/health' passHref>
+              <Button
+                colorScheme='red'
+                size='lg'
+                variant='outline'
+                boxShadow='md'
+                _focus={{ outline: 'none' }}
+                leftIcon={<GiHealthPotion />}
+              >
+                API Health
+              </Button>
+            </NextLink>
+          </Flex>
+        </GridItem>
+      </Grid>
     </PageLayout>
   );
 };
