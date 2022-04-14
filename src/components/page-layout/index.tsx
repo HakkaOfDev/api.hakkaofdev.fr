@@ -36,7 +36,7 @@ const PageLayout = ({ title, description, children }: PageProps) => {
   return (
     <>
       <NextSeo
-        title={title + ' | Starter Kit'}
+        title={title + ' | API'}
         description={description}
         twitter={{
           cardType: 'summary_large_image',
@@ -66,9 +66,11 @@ const PageLayout = ({ title, description, children }: PageProps) => {
       />
       <MotionContainer
         display='flex'
-        maxW='container.lg'
-        minH={{ base: 'auto', md: '100vh' }}
-        px={{ base: 4, lg: 8 }}
+        w='100wh'
+        h='100vh'
+        maxW='100wh'
+        overflow='hidden'
+        p={{ base: 2, lg: 4 }}
         initial='hidden'
         animate='enter'
         exit='exit'
