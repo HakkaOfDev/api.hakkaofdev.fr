@@ -38,5 +38,5 @@ export default async function handler(
     'public, s-maxage=60, stale-while-revalidate=30'
   );
 
-  return res.status(200).json({ track });
+  return res.status(200).json({ ...track });
 }
