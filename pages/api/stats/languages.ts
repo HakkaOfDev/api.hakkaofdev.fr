@@ -1,11 +1,12 @@
-import { getActivity } from '@/lib/wakatime';
+import { getLanguages } from '@/lib/wakatime';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await getActivity();
+  const { range } = req.query;
+  const response = await getLanguages(range ? `${range}` : 'last_7_days');
 
   res.setHeader(
     'Cache-Control',

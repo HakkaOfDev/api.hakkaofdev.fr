@@ -1,5 +1,8 @@
+import GlobalStats from '@/components/global-stats';
+import LanguagesChart from '@/components/languages-chart';
 import NowPlaying from '@/components/now-playing';
 import PageLayout from '@/components/page-layout';
+import ProjectsChart from '@/components/projects-chart';
 import RecentlyPlayed from '@/components/recently-played';
 import ThemeButton from '@/components/theme-button';
 import TopTracks from '@/components/top-tracks';
@@ -22,9 +25,9 @@ import NextLink from 'next/link';
 
 const IndexPage = () => {
   return (
-    <PageLayout title='Home' description="Official HakkaOfDev's API">
+    <PageLayout title='Dashboard' description="Official HakkaOfDev's API">
       <Grid
-        templateRows='repeat(6, 1fr)'
+        templateRows='repeat(8, 1fr)'
         templateColumns='repeat(8, 1fr)'
         gap={8}
         h='full'
@@ -40,20 +43,40 @@ const IndexPage = () => {
             <Text>Welcome to my official opensource API.</Text>
           </VStack>
         </GridItem>
-        <GridItem colSpan={4} rowSpan={5}></GridItem>
-        <GridItem colSpan={2} rowSpan={5} pb={8}>
+        <GridItem colSpan={4} rowSpan={3}>
+          <Heading fontSize='xl' p={2}>
+            Projects
+          </Heading>
+          <Divider />
+          <ProjectsChart />
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={6} pb={8}>
           <Heading fontSize='xl' p={2}>
             Top Tracks
           </Heading>
           <Divider />
           <TopTracks />
         </GridItem>
-        <GridItem colSpan={2} rowSpan={5} pb={8}>
+        <GridItem colSpan={2} rowSpan={6} pb={8}>
           <Heading fontSize='xl' p={2}>
             Recently Played
           </Heading>
           <Divider />
           <RecentlyPlayed />
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={3} py={2}>
+          <Heading fontSize='xl' p={2}>
+            Global Stats
+          </Heading>
+          <Divider />
+          <GlobalStats />
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={3} py={2}>
+          <Heading fontSize='xl' p={2}>
+            Languages
+          </Heading>
+          <Divider />
+          <LanguagesChart />
         </GridItem>
         <GridItem colSpan={2}>
           <NowPlaying />

@@ -1,11 +1,12 @@
-import { getActivity } from '@/lib/wakatime';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getProjectStats } from '../../../lib/wakatime';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await getActivity();
+  const { range } = req.query;
+  const response = await getProjectStats(range ? `${range}` : 'last_7_days');
 
   res.setHeader(
     'Cache-Control',
