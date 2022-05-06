@@ -16,7 +16,7 @@ const RecentlyPlayed = () => {
       overflowX='hidden'
       py={2}
     >
-      {data && data.map((track) => <TrackCard key={track.title} {...track} />)}
+      {data && data.map((track, index) => <TrackCard key={index} {...track} />)}
     </VStack>
   );
 };

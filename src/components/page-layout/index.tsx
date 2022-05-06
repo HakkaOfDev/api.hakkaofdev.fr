@@ -36,7 +36,7 @@ const PageLayout = ({ title, description, children }: PageProps) => {
   return (
     <>
       <NextSeo
-        title={title + ' | API'}
+        title='Dashboard | API'
         description={description}
         twitter={{
           cardType: 'summary_large_image',
@@ -44,7 +44,7 @@ const PageLayout = ({ title, description, children }: PageProps) => {
         }}
         openGraph={{
           url: 'https://www.hakkaofdev.fr',
-          title: title + ' | Starter Kit',
+          title: 'Dashboard | API',
           description: description,
           locale: 'en_US',
           images: [

@@ -2,7 +2,9 @@ const API_URLS = [
   'spotify/now-playing',
   'spotify/top-tracks',
   'spotify/recently-played',
-  'stats/activity'
+  'stats/activity',
+  'stats/languages',
+  'stats/projects'
 ]
 
 module.exports = {
