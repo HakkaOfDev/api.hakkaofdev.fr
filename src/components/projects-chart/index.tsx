@@ -49,10 +49,10 @@ const ProjectsChart = () => {
   };
 
   return (
-    <Flex w='full' h='full'>
+    <Flex h='200px' w='full'>
       <Bar
         options={options}
-        style={{ position: 'relative' }}
+        style={{ position: 'relative', height: '100%', width: '100%' }}
         data={dataChart}
       />
     </Flex>

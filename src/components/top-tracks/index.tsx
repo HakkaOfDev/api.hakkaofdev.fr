@@ -10,7 +10,7 @@ const TopTracks = () => {
   return (
     <VStack
       w='full'
-      h='full'
+      h={96}
       align='start'
       overflowY='scroll'
       overflowX='hidden'

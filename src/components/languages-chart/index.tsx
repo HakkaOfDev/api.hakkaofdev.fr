@@ -68,7 +68,7 @@ const LanguagesChart = () => {
   };
 
   return (
-    <Flex w='full' h='full'>
+    <Flex w='full' h='300px'>
       <Doughnut
         options={options}
         style={{ width: '100%', height: '100%' }}
